@@ -16,9 +16,10 @@ public class MainWindowViewModel : BindableBase
     {
         ArkData = CreateArc(100, 0);
         StartTimerCommand = new RelayCommand(ExecuteStartTimerCommand);
+        StopTimerCommand = new RelayCommand(ExecuteStopTimerCommand);
+
         _timer.Interval = 10;
         _timer.Elapsed += TimerElapsed;
-        StartTimerCommand = new RelayCommand(ExecuteStartTimerCommand);
     }
 
     public Geometry? ArkData
@@ -28,6 +29,7 @@ public class MainWindowViewModel : BindableBase
     }
 
     public RelayCommand StartTimerCommand { get; set; }
+    public RelayCommand StopTimerCommand { get; set; }
 
     private Geometry? CreateArc(double radius, double angle)
     {
@@ -55,6 +57,11 @@ public class MainWindowViewModel : BindableBase
         ArkData = CreateArc(100, _angle);
 
         _timer.Start();
+    }
+
+    private void ExecuteStopTimerCommand(object obj)
+    {
+        _timer.Stop();
     }
 
     private void TimerElapsed(object? sender, ElapsedEventArgs e)

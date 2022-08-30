@@ -8,21 +8,11 @@
     Title="MainWindow"
     Width="800"
     Height="450"
-    AllowsTransparency="True"
-    Background="Transparent"
     ResizeMode="NoResize"
     WindowStartupLocation="CenterScreen"
-    WindowStyle="None"
     mc:Ignorable="d">
     <Grid>
         <Border Background="DarkSlateGray" CornerRadius="10" />
-        <Button
-            Width="40"
-            Height="40"
-            Margin="10"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Top"
-            Style="{StaticResource BtnPower}" />
 
         <Path
             HorizontalAlignment="Center"
@@ -51,6 +41,7 @@
             Margin="100,0,0,50"
             HorizontalAlignment="Center"
             VerticalAlignment="Bottom"
+            Command="{Binding StopTimerCommand}"
             Content="종료" />
     </Grid>
 </Window>
